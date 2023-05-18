@@ -3,20 +3,23 @@ import java.util.Scanner;
 
 public class PlayerInput {
 
-    private ArrayList<Character> playerGuesses = new ArrayList<>();
+    private static ArrayList<Character> playerGuesses = new ArrayList<>();
 
 
-    private Scanner input = new Scanner(System.in);
-    public Scanner getInput() {
+    private static Scanner input = new Scanner(System.in);
+
+    public static Scanner getInput() {
         return input;
     }
-    public void setInput(Scanner input) {
-        this.input = input;
+
+    public static void setInput(Scanner input) {
+        PlayerInput.input = input;
     }
 
 
 
-    public ArrayList<Character> getPlayerGuesses() {
+
+    public static ArrayList<Character> getPlayerGuesses() {
         return playerGuesses;
     }
 

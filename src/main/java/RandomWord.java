@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class RandomWord extends Main{
 
-    private ArrayList<String> words =
+    private static ArrayList<String> words =
             new ArrayList<>(Arrays.asList("happy", "snake", "communication", "letter", "monitor", "application", "network", "banana", "orange", "apple"));
-    private Random randomWord = new Random();
+    private static Random randomWord = new Random();
 
-    public String secretWord(){
+    public static String secretWord(){
         String word = words.get(randomWord.nextInt(words.size())).toUpperCase();
         return word;
 
