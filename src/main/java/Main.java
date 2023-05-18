@@ -21,7 +21,7 @@ public class Main {
 
 
 
-//        int lives = 10;
+
 
         while (Lives.lives > 0) {
             System.out.print("\nLives: ");
