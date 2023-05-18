@@ -1,13 +1,14 @@
 public class Lives {
 
-    RandomWord word = new RandomWord();
+    static int lives = 10;
 
-
-    public void gameOver() {
-        int lives = 10;
-        if (lives == 0) {
-            System.out.println("You lost");
-            System.out.println("The word was: " + word.secretWord());
+    public static void printLives() {
+        for (int i=0; i<lives; i++) {
+            System.out.print("< ");
         }
+
+        System.out.println("\nYou have " + lives + " lives left !!");
+        System.out.println("\n");
     }
+
 }

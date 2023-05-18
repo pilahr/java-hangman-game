@@ -3,24 +3,13 @@ import java.util.Scanner;
 
 public class PlayerInput {
 
-    private ArrayList<Character> playerGuesses = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
 
-
-    private Scanner input = new Scanner(System.in);
-    public Scanner getInput() {
-        return input;
-    }
-    public void setInput(Scanner input) {
-        this.input = input;
+    public static Scanner getScanner() {
+        return scanner;
     }
 
-
-
-    public ArrayList<Character> getPlayerGuesses() {
-        return playerGuesses;
-    }
-
-    public void setPlayerGuesses(ArrayList<Character> playerGuesses) {
-        this.playerGuesses = playerGuesses;
+    public static void setScanner(Scanner scanner) {
+        PlayerInput.scanner = scanner;
     }
 }
