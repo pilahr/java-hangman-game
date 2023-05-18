@@ -48,7 +48,7 @@ public class Main {
             }
 
 
-            boolean isGameFinished = isGameFinished(randomWord.getLetters());
+            boolean isGameFinished = GameFinishChecker.isGameFinished(randomWord.getLetters());
 
 
             PopNotUsed.notUsedLetters(letter);
@@ -72,19 +72,19 @@ public class Main {
 //    }
 
 
-    private static boolean isGameFinished(char[] letters) {
-        boolean isGameFinished = true;
-        System.out.print("Word: ");
-        for (int i = 0; i< letters.length; i++){
-            if (letters[i] == '_') {
-                isGameFinished = false;
-            }
-
-            System.out.print(letters[i]+ " ");
-        }
-        System.out.println();
-        return isGameFinished;
-    }
+//    private static boolean isGameFinished(char[] letters) {
+//        boolean isGameFinished = true;
+//        System.out.print("Word: ");
+//        for (int i = 0; i< letters.length; i++){
+//            if (letters[i] == '_') {
+//                isGameFinished = false;
+//            }
+//
+//            System.out.print(letters[i]+ " ");
+//        }
+//        System.out.println();
+//        return isGameFinished;
+//    }
 
 
 }
