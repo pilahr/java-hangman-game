@@ -13,8 +13,9 @@ public class Main {
         GameInitialiser start = new GameInitialiser();
         start.startGame();
 
+
         LetterGuesser guess = new LetterGuesser();
-        guess.printWordState(guess.getWord(), guess.getPlayerGuesses());
+        guess.printWordState(guess.secretWord(), guess.guess.getPlayerGuesses());
 
 
     }
