@@ -15,23 +15,18 @@ public class Main {
 
         PlayerInput scanner = new PlayerInput();
 
+        Lives lives = new Lives();
+
         randomWord.hintWord();
 
 
 
+//        int lives = 10;
 
-
-        int lives = 10;
-
-        while (lives > 0) {
+        while (Lives.lives > 0) {
             System.out.print("\nLives: ");
 
-            for (int i=0; i<lives; i++) {
-                System.out.print("< ");
-            }
-
-            System.out.println("\nYou have " + lives + " lives left !!");
-            System.out.println("\n");
+            Lives.printLives();
 
             System.out.print("Enter the letter: ");
             String input = PlayerInput.getScanner().nextLine().toUpperCase();
@@ -49,7 +44,7 @@ public class Main {
             }
 
             if (!isGuessCorrect) {
-                lives--;
+                Lives.lives--;
             }
 
 
@@ -64,9 +59,17 @@ public class Main {
                 break;
             }
         }
-        GameOver.gameOver(randomWord.getRandomWord(), lives);
+        GameOver.gameOver(randomWord.getRandomWord(), Lives.lives);
     }
 
+//    private static void printLives() {
+//        for (int i=0; i<lives; i++) {
+//            System.out.print("< ");
+//        }
+//
+//        System.out.println("\nYou have " + lives + " lives left !!");
+//        System.out.println("\n");
+//    }
 
 
     private static boolean isGameFinished(char[] letters) {
