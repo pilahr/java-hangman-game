@@ -1,37 +1,54 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class RandomWord extends Main{
 
-    private static ArrayList<String> words =
-            new ArrayList<>(Arrays.asList("happy", "snake", "communication", "letter", "monitor", "application", "network", "banana", "orange", "apple"));
-    private static Random randomWord = new Random();
 
-    public static String secretWord(){
-        String word = words.get(randomWord.nextInt(words.size())).toUpperCase();
-        return word;
 
+
+    String[] words = new String[] {"happy", "snake", "letter", "monitor", "network", "banana", "orange", "apple"};
+
+
+    private String randomWord = generateRandomWord(words);
+
+
+    private char[] letters = new char[randomWord.length()];
+
+
+    public String getRandomWord() {
+        return randomWord;
     }
 
-//    private ArrayList<String> words =
-//            new ArrayList<>(Arrays.asList("happy", "snake", "communication", "letter", "monitor", "application", "network", "banana", "orange", "apple"));
-//    private ArrayList<Character> playerGuesses = new ArrayList<>();
-//
-//    private Random randomWord = new Random();
-//    private String word = words.get(randomWord.nextInt(words.size())).toUpperCase();
-//
-//    public String getWord() {
-//        return word;
-//    }
-//    public void setWord(String word) {
-//        this.word = word;
-//    }
-//    public ArrayList<Character> getPlayerGuesses() {
-//        return playerGuesses;
-//    }
-//    public void setPlayerGuesses(ArrayList<Character> playerGuesses) {
-//        this.playerGuesses = playerGuesses;
-//    }
+    public void setRandomWord(String randomWord) {
+        this.randomWord = randomWord;
+    }
+
+    public char[] getLetters() {
+        return letters;
+    }
+
+    public void setLetters(char[] letters) {
+        this.letters = letters;
+    }
+
+    private static String generateRandomWord(String[] words) {
+        int randomNum = new Random().nextInt(words.length);
+        String randomWord = words[randomNum].toUpperCase();
+
+        System.out.println(randomWord);
+        return randomWord;
+    }
+
+    public void hintWord(){
+        for (int i = 0; i < randomWord.length(); i++) {
+            System.out.print("_ ");
+            randomWord(letters);
+        }
+    }
+
+    private static void randomWord(char[] letters) {
+        for (int i = 0; i< letters.length; i++){
+            letters[i] = '_';
+        }
+    }
 
 }

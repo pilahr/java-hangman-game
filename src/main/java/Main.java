@@ -1,54 +1,202 @@
 import java.util.*;
 
 public class Main {
-    private static Scanner input = new Scanner(System.in);
 
-    public static Scanner getInput() {
-        return input;
-    }
-    public static void setInput(Scanner input) {
-        Main.input = input;
-    }
     public static void main(String[] args) {
 
         GameInitialiser start = new GameInitialiser();
         start.startGame();
 
-        Lives life = new Lives();
-        life.remainingLives();
+        Scanner scanner = new Scanner(System.in);
 
 
-//        LetterGuesser guess = new LetterGuesser();
 
-//        LetterGuesser.printWordState(RandomWord.secretWord(),PlayerInput.getPlayerGuesses());
-//        LetterGuesser.getUserGuess(PlayerInput.getPlayerGuesses());
-//        LetterGuesser.getWinner();
+        RandomWord randomWord = new RandomWord();
+
+        PopNotUsed notUsed = new PopNotUsed();
+
+        GameOver end = new GameOver();
+
+        randomWord.hintWord();
 
 
-        while (true) {
-//            LetterGuesser.printWordState(RandomWord.secretWord(), PlayerInput.getPlayerGuesses() );
-            LetterGuesser.getUserGuess(PlayerInput.getPlayerGuesses());
 
-            if (LetterGuesser.printWordState(RandomWord.secretWord(), PlayerInput.getPlayerGuesses())){
-                System.out.println("You win!");
+
+
+        int lives = 10;
+
+        while (lives > 0) {
+            System.out.print("\nLives: ");
+
+            for (int i=0; i<lives; i++) {
+                System.out.print("< ");
+            }
+
+            System.out.println("\nYou have " + lives + " lives left !!");
+            System.out.println("\n");
+
+            System.out.print("Enter the letter: ");
+            String input = scanner.nextLine().toUpperCase();
+
+            char letter = input.charAt(0);
+
+            boolean isGuessCorrect = false;
+            for (int i = 0; i < randomWord.getRandomWord().length(); i++) {
+                char l = randomWord.getRandomWord().charAt(i);
+
+                if (l == letter) {
+                    randomWord.getLetters()[i] = l;
+                    isGuessCorrect = true;
+                }
+            }
+
+            if (!isGuessCorrect) {
+                lives--;
+            }
+
+
+            boolean isGameFinished = isGameFinished(randomWord.getLetters());
+
+
+            PopNotUsed.notUsedLetters(letter);
+
+
+            if (isGameFinished){
+                System.out.println("You are the WINNER **!!");
                 break;
             }
-//            System.out.println("Please enter your guess for the word..");
-//            if (getInput().nextLine().equals(RandomWord.secretWord())) {
-//                System.out.println("You Won!!");
-//                break;
-//            }
-            else {
-                System.out.println("Nope! try again!");
-                life.loseLife();
-                life.remainingLives();
+        }
+        GameOver.gameOver(randomWord.getRandomWord(), lives);
+    }
+
+
+
+    private static boolean isGameFinished(char[] letters) {
+        boolean isGameFinished = true;
+        System.out.print("Word: ");
+        for (int i = 0; i< letters.length; i++){
+            if (letters[i] == '_') {
+                isGameFinished = false;
             }
 
+            System.out.print(letters[i]+ " ");
         }
-//        guess.printWordState(guess.secretWord(), guess.guess.getPlayerGuesses());
-
-
-
-
+        System.out.println();
+        return isGameFinished;
     }
+
+
+//        String notUsed = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z";
+//
+//        String[] words = new String[] {"happy", "snake", "letter", "monitor", "network", "banana", "orange", "apple"};
+//
+//
+//        String randomWord = generateRandomWord(words);
+//
+//
+//        char[] letters = new char[randomWord.length()];
+
+
+//        for (int i = 0; i < randomWord.length(); i++) {
+//            System.out.print("_ ");
+//        }
+//
+//        randomWord(letters);
+
+
+
+//        Scanner scanner = new Scanner(System.in);
+//
+//
+//        int lives = 10;
+//
+//
+//
+//
+//
+//        while (lives > 0) {
+//            System.out.print("\nLives: ");
+//
+//            for (int i=0; i<lives; i++) {
+//                System.out.print("< ");
+//            }
+//
+//            System.out.println("\nYou have " + lives + " lives left !!");
+//            System.out.println("\n");
+//
+//            System.out.print("Enter the letter: ");
+//            String input = scanner.nextLine().toUpperCase();
+//
+//            char letter = input.charAt(0);
+//
+//            boolean isGuessCorrect = false;
+//            for (int i = 0; i < randomWord.length(); i++) {
+//                char l = randomWord.charAt(i);
+//
+//                if (l == letter) {
+//                    letters[i] = l;
+//                    isGuessCorrect = true;
+//                }
+//            }
+//
+//            if (!isGuessCorrect) {
+//                lives--;
+//            }
+//
+//
+//            boolean isGameFinished = isGameFinished(letters);
+//
+//
+//            notUsed = notUsed.replace(letter, '.');
+//
+//            System.out.println("Not used: " + notUsed);
+//
+//
+//            if (isGameFinished){
+//                System.out.println("You are the WINNER **!!");
+//                break;
+//            }
+//        }
+//        gameOver(randomWord, lives);
+//    }
+//
+//    private static boolean isGameFinished(char[] letters) {
+//        boolean isGameFinished = true;
+//        System.out.print("Word: ");
+//        for (int i = 0; i< letters.length; i++){
+//            if (letters[i] == '_') {
+//                isGameFinished = false;
+//            }
+//
+//            System.out.print(letters[i]+ " ");
+//        }
+//        System.out.println();
+//        return isGameFinished;
+//    }
+
+//    private static String generateRandomWord(String[] words) {
+//        int randomNum = new Random().nextInt(words.length);
+//        String randomWord = words[randomNum].toUpperCase();
+//
+//        System.out.println(randomWord);
+//        return randomWord;
+//    }
+
+//    private static void randomWord(char[] letters) {
+//        for (int i = 0; i< letters.length; i++){
+//            letters[i] = '_';
+//        }
+//    }
+
+//    private static void gameOver(String randomWord, int lives) {
+//        if (lives == 0) {
+//            System.out.println("\nYou lost :(");
+//            System.out.println("The word was: " + randomWord);
+//        }
+//    }
+
+
+
+
+
 }
