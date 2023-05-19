@@ -1,4 +1,4 @@
-public class DrawHangman {
+public class DrawHangman extends Lives{
 
     public static void drawHangman(){
 
@@ -94,16 +94,6 @@ public class DrawHangman {
             System.out.println("\t\t\t____________");
         } else {
             System.out.println();
-
-
         }
-
     }
-
-
-    public static void main(String[] args) {
-
-
-    }
-
 }

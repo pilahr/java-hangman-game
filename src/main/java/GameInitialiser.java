@@ -1,4 +1,4 @@
-public class GameInitialiser extends PlayerInput{
+public class GameInitialiser {
 
     PlayerInput input = new PlayerInput();
     public void startGame(){
@@ -6,6 +6,10 @@ public class GameInitialiser extends PlayerInput{
         System.out.println("\n--> You can enter only one letter at a time to guess the word.");
         System.out.println("--> You have ten chances before the hangman is hanged (you fail).");
         System.out.println("--> If you guess the word correctly, you win.");
+
+        System.out.println("\n\t\\  (_) /");
+        System.out.println("\t    |");
+        System.out.println("\t   / \\ ");
 
         System.out.print("\nEnter your name: ");
         String playerName = input.getScanner().nextLine();
