@@ -1,6 +1,5 @@
 public class DrawHangman {
 
-    public Lives lives = new Lives();
     public static void drawHangman(){
 
         if(Lives.lives == 10){

@@ -7,8 +7,8 @@ public class Main {
         GameInitialiser start = new GameInitialiser();
         start.startGame();
 
-        RandomWord randomWord = new RandomWord();
 
+        RandomWord randomWord = new RandomWord();
         randomWord.hintWord();
 
         while (Lives.lives > 0) {
@@ -22,6 +22,7 @@ public class Main {
             String input = PlayerInput.getScanner().nextLine().toUpperCase();
 
             char letter = input.charAt(0);
+            System.out.println("Your letter is " + letter);
             System.out.println();
 
             boolean isGuessCorrect = false;
@@ -32,7 +33,17 @@ public class Main {
                     randomWord.getLetters()[i] = l;
                     isGuessCorrect = true;
                 }
+
             }
+
+            String regex = "[!@#$%&*()/_+=|<>?{}\\\\[\\\\]~-]";
+            if (String.valueOf(letter).matches(regex)){
+                System.out.println("*** Please enter a valid letter/ not a numbers and symbols ***\n");
+            }
+            if (String.valueOf(letter).matches("[0-9]")){
+                System.out.println("*** Please enter a valid letter/ not a numbers and symbols ***\n");
+            }
+
 
             if (!isGuessCorrect) {
                 Lives.lives--;
