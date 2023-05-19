@@ -9,30 +9,20 @@ public class Main {
 
         RandomWord randomWord = new RandomWord();
 
-        PopNotUsed notUsed = new PopNotUsed();
-
-        GameOver end = new GameOver();
-
-        PlayerInput scanner = new PlayerInput();
-
-        Lives lives = new Lives();
-
         randomWord.hintWord();
-
-
-
-//        int lives = 10;
 
         while (Lives.lives > 0) {
             System.out.print("\nLives: ");
 
             Lives.printLives();
+            DrawHangman.drawHangman();
 
             System.out.println("\n");
             System.out.print("Enter the letter: ");
             String input = PlayerInput.getScanner().nextLine().toUpperCase();
 
             char letter = input.charAt(0);
+            System.out.println();
 
             boolean isGuessCorrect = false;
             for (int i = 0; i < randomWord.getRandomWord().length(); i++) {
@@ -62,30 +52,5 @@ public class Main {
         }
         GameOver.gameOver(randomWord.getRandomWord(), Lives.lives);
     }
-
-//    private static void printLives() {
-//        for (int i=0; i<lives; i++) {
-//            System.out.print("< ");
-//        }
-//
-//        System.out.println("\nYou have " + lives + " lives left !!");
-//        System.out.println("\n");
-//    }
-
-
-//    private static boolean isGameFinished(char[] letters) {
-//        boolean isGameFinished = true;
-//        System.out.print("Word: ");
-//        for (int i = 0; i< letters.length; i++){
-//            if (letters[i] == '_') {
-//                isGameFinished = false;
-//            }
-//
-//            System.out.print(letters[i]+ " ");
-//        }
-//        System.out.println();
-//        return isGameFinished;
-//    }
-
 
 }
