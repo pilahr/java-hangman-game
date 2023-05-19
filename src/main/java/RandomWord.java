@@ -2,17 +2,9 @@ import java.util.Random;
 
 public class RandomWord extends Main{
 
-
-
-
-    final String[] WORDS = new String[] {"happy", "snake", "letter", "monitor", "network", "banana", "orange", "apple"};
-
-
+    final String[] WORDS = new String[] {"happy", "snake", "letter", "monitor", "network", "banana", "orange", "apple", "fizzy", "jazz", "junk", "fox", "coat", "heart", "person", "ball", "beach"  };
     private String randomWord = generateRandomWord(WORDS);
-
-
     private char[] letters = new char[randomWord.length()];
-
 
     public String getRandomWord() {
         return randomWord;
