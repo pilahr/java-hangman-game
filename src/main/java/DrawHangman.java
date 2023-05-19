@@ -1,6 +1,5 @@
-public class DrawHangman {
+public class DrawHangman extends Lives{
 
-    public Lives lives = new Lives();
     public static void drawHangman(){
 
         if(Lives.lives == 10){
@@ -95,16 +94,6 @@ public class DrawHangman {
             System.out.println("\t\t\t____________");
         } else {
             System.out.println();
-
-
         }
-
     }
-
-
-    public static void main(String[] args) {
-
-
-    }
-
 }
