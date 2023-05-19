@@ -9,6 +9,7 @@ public class GameInitialiser extends PlayerInput{
 
         System.out.print("\nEnter your name: ");
         String playerName = input.getScanner().nextLine();
-        System.out.println("Hello, player " + playerName + "\n\tLet's play!!\n");
+        System.out.println("Hello, player " + playerName.toUpperCase() + "\n\tLet's play!!\n");
+        System.out.println("\n Guess the word below \n");
     }
 }

@@ -28,6 +28,7 @@ public class Main {
 
             Lives.printLives();
 
+            System.out.println("\n");
             System.out.print("Enter the letter: ");
             String input = PlayerInput.getScanner().nextLine().toUpperCase();
 
@@ -55,7 +56,7 @@ public class Main {
 
 
             if (isGameFinished){
-                System.out.println("You are the WINNER **!!");
+                System.out.println("!!** You are the WINNER **!!");
                 break;
             }
         }

@@ -8,7 +8,7 @@ public class Lives {
         }
 
         System.out.println("\nYou have " + lives + " lives left !!");
-        System.out.println("\n");
+        System.out.println("***************************************");
     }
 
 }

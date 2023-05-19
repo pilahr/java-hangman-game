@@ -5,10 +5,10 @@ public class RandomWord extends Main{
 
 
 
-    String[] words = new String[] {"happy", "snake", "letter", "monitor", "network", "banana", "orange", "apple"};
+    final String[] WORDS = new String[] {"happy", "snake", "letter", "monitor", "network", "banana", "orange", "apple"};
 
 
-    private String randomWord = generateRandomWord(words);
+    private String randomWord = generateRandomWord(WORDS);
 
 
     private char[] letters = new char[randomWord.length()];
